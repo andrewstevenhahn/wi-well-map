@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title></title>
+
+		<!--put your external stylesheet links here-->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+		<link rel="stylesheet" href="css/style.css">
+		<!--[if IE<9]>
+			<link rel="stylesheet" href="css/style.ie.css">
+		<![endif]-->
+	</head>
+
+	<body>
+		<!--put your initial page content here-->
+		<!--bootstrap row below-->
+		<div class="container-fluid page-bk justify-content-center">
+			<div class="d-flex container-fluid masthead-container justify-content-center">
+				<div class="page-title-box col-md-8">
+					<h1 class="page-title"">Where's Wisconsin's Water?</h1>
+					<h3 class="page-subhead">High-Capacity Groundwater Well Consumption Threatens Wisconsin Freshwater Ecosystems</h3>
+				</div>
+			</div>
+			<div class="d-flex container-fluid masthead-container">
+				<nav class="navbar navbar-expand-lg navbar-dark masthead-container">
+					<div class="container-fluid col-md-8">
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+							<div class="navbar-nav">
+						  		<a class="nav-link active" aria-current="page" href="#maprow">Map</a>
+						  		<a class="nav-link active" href="#sourcerow">Sources</a>
+								<a class="nav-link active" href="#">About</a>
+							</div>
+					  	</div>
+					</div>
+				</nav>
+			</div>
+			<div class="row d-flex container-fluid justify-content-center">
+				<div class="col-md-6 rowbox">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus posuere ligula vitae cursus. Sed et porta nulla. I
+						n quis fringilla tellus. Curabitur nec dui molestie est viverra luctus commodo ut ex. Lorem ipsum dolor sit amet, consectetur 
+						adipiscing elit. Sed et nulla orci. Praesent vel metus ligula. Ut in ligula porta, condimentum diam in, facilisis nulla. Cras id 
+						commodo sem. Fusce luctus tincidunt dui, in semper dolor sodales vel. Suspendisse hendrerit vestibulum diam, tempor lacinia ligula 
+						laoreet ut. Sed convallis, elit non elementum feugiat, velit magna ornare ante, quis finibus massa tortor vel nibh. Donec ut 
+						venenatis felis. Sed eget augue id lectus pellentesque rutrum. Aenean blandit nulla condimentum pulvinar hendrerit.
+					</p>
+					<p>
+						Quisque malesuada congue sapien, ut porta libero facilisis at. Nam mi lorem, rutrum a maximus eu, mollis sed justo. Ut a sem vel nunc 
+						viverra mollis nec non urna. Phasellus augue tortor, volutpat at sodales tincidunt, dapibus sit amet lorem. Aliquam eu lectus at lectus 
+						aliquet porta. Aliquam pulvinar lacus a ullamcorper semper. Donec sed quam aliquam, venenatis nulla a, faucibus ligula. Suspendisse 
+						potenti.
+					</p>
+					<p>
+						Donec libero velit, lacinia ut mattis in, lacinia vitae tortor. Sed eget fermentum lacus. Phasellus sed tincidunt arcu, eget fermentum 
+						ligula. In pretium tincidunt quam sit amet eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus non ullamcorper 
+						neque, ut rhoncus dolor. Aliquam volutpat a tortor sed mattis. Ut id rutrum odio, non consectetur velit. Morbi ut lacus quis mi commodo 
+						tristique. Curabitur euismod mi a mi ullamcorper, sed aliquet velit luctus.
+					</p>										
+				</div>
+			</div>
+			<div class="row d-flex container-fluid whiterow" id="maprow">
+				<div id="map">									
+				</div>
+		
+			</div>  
+			<div class="row d-flex container-fluid justify-content-center" id="sourcerow">
+				<div class="col-md-6 rowbox">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus posuere ligula vitae cursus. Sed et porta nulla. I
+						n quis fringilla tellus. Curabitur nec dui molestie est viverra luctus commodo ut ex. Lorem ipsum dolor sit amet, consectetur 
+						adipiscing elit. Sed et nulla orci. Praesent vel metus ligula. Ut in ligula porta, condimentum diam in, facilisis nulla. Cras id 
+						commodo sem. Fusce luctus tincidunt dui, in semper dolor sodales vel. Suspendisse hendrerit vestibulum diam, tempor lacinia ligula 
+						laoreet ut. Sed convallis, elit non elementum feugiat, velit magna ornare ante, quis finibus massa tortor vel nibh. Donec ut 
+						venenatis felis. Sed eget augue id lectus pellentesque rutrum. Aenean blandit nulla condimentum pulvinar hendrerit.
+					</p>
+					<p>
+						Quisque malesuada congue sapien, ut porta libero facilisis at. Nam mi lorem, rutrum a maximus eu, mollis sed justo. Ut a sem vel nunc 
+						viverra mollis nec non urna. Phasellus augue tortor, volutpat at sodales tincidunt, dapibus sit amet lorem. Aliquam eu lectus at lectus 
+						aliquet porta. Aliquam pulvinar lacus a ullamcorper semper. Donec sed quam aliquam, venenatis nulla a, faucibus ligula. Suspendisse 
+						potenti.
+					</p>
+					<p>
+						Donec libero velit, lacinia ut mattis in, lacinia vitae tortor. Sed eget fermentum lacus. Phasellus sed tincidunt arcu, eget fermentum 
+						ligula. In pretium tincidunt quam sit amet eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus non ullamcorper 
+						neque, ut rhoncus dolor. Aliquam volutpat a tortor sed mattis. Ut id rutrum odio, non consectetur velit. Morbi ut lacus quis mi commodo 
+						tristique. Curabitur euismod mi a mi ullamcorper, sed aliquet velit luctus.
+					</p>										
+				</div>
+		
+			</div>  
+
+		</div>			
+		<!--you can also use this space for internal scripts or stylesheets;
+		place these within <script> or <style> tags-->
+
+		<!--put your external script links here-->
+		<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+		<script src="js/main.js"></script>
+
+	</body>
+</html> 
