@@ -127,3 +127,15 @@ a {
 .navbar-expand-lg {
     padding-left: 20px;
 }
+
+.toggle{
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    background-color: #f7f7f7;
+}
+
+.form-check-label {
+    font: 14px Helvetica;
+}

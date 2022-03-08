@@ -1,5 +1,4 @@
 //Code adapted from https://cartographicperspectives.org/index.php/journal/article/view/cp76-donohue-et-al/1307
-
 $(document).ready(function () {
     var wells;
     var map = L.map('map').setView([44.7, -89.7], 7);
@@ -41,7 +40,7 @@ $(document).ready(function () {
     }
 
     function calcPropRadius(attributeValue) {
-        var scaleFactor = 20;
+        var scaleFactor = 15;
         var area = attributeValue * scaleFactor;
         return Math.sqrt(area/Math.PI)*2;
     }
@@ -50,14 +49,8 @@ $(document).ready(function () {
         
         wells.eachLayer(function(layer) {
             var timestamp2 = "yr" + timestamp.toString();
-            var prevtime = "yr" + (timestamp-1).toString();
             var props = layer.feature.properties;
             var radius = calcPropRadius(props[timestamp2]);
-            var newwells = props[timestamp2] - props[prevtime];
-            console.log(String(props.timestamp2) + "-" + String(props.prevtime))
-            if (isNaN(newwells)) {
-                var newwells = 0;
-            }
             var popupContent = "<b> " + props["TWP"] + "N " + props["RNG"] + props["DIR_ALPHA"] + "</b><br>"
                     +"<i>" + String(props[timestamp2]) + " total high-capacity <br /> wells built between <br /> 2010 and "+ String(timestamp) +"</i>"
             
@@ -197,18 +190,64 @@ $(document).ready(function () {
 		temporalLegend.addTo(map); 
 	}
 
-    L.tileLayer(
-        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 12,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
+    function createToggle() {
+         
+        var togglebutton = L.control({position: 'topright'});
+        
+        togglebutton.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'toggle');
+            div.innerHTML = '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Show Central Sands<br>Ecological Landscapes</label></div>';
+            L.DomEvent.disableClickPropagation(div);
+            return div
+        }
+
+        togglebutton.addTo(map)
+        
+        L.DomEvent.disableClickPropagation(togglebutton);
+
+    }
+
+
+    var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
     
+    OpenStreetMap_Mapnik.addTo(map);
+
     $.getJSON("data/plss_centroids_wellconstruction.geojson")
             .done(function(data) {
                 var info = processData(data)
+                let showSands = false;
                 createPropSymbols(info.timestamps, data)
                 createLegend(info.min,info.max);
                 createSliderUI(info.timestamps);
+                createToggle();
+                document.getElementsByClassName("toggle")[0].addEventListener("mousedown", function() {
+                    $.getJSON("data/centralsands_2.geojson", function(data){
+                        var sandslayer = L.geoJson(data, {
+                            style: {
+                                fillColor: "#adadad",
+                                fillOpacity: 0.6,
+                                color: "#272827",
+                                weight: 1,
+                                className: "sands"
+                            }
+                        })
+
+                        if (document.getElementsByClassName("toggle")[0].checked == false) {
+                            $('.sands.leaflet-clickable').remove();
+                            document.getElementsByClassName("toggle")[0].checked = true;
+                        } else {
+                            map.addLayer(sandslayer);
+                            sandslayer.bringToBack();
+                            document.getElementsByClassName("toggle")[0].checked = false;
+                        }
+
+                    });
+                });
+
+
             })
     .fail(function() {alert("There has been a problem loading the data.")});
 
