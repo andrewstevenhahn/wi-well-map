@@ -21,79 +21,125 @@
 			<div class="d-flex container-fluid masthead-container justify-content-center">
 				<div class="page-title-box col-md-8">
 					<h1 class="page-title"">Where's Wisconsin's Water?</h1>
-					<h3 class="page-subhead">High-Capacity Groundwater Well Consumption Threatens Wisconsin Freshwater Ecosystems</h3>
+					<h3 class="page-subhead">Visualizing the Proliferation of High-Capacity Groundwater Wells Over the Last Decade</h3>
 				</div>
 			</div>
 			<div class="d-flex container-fluid masthead-container">
-				<nav class="navbar navbar-expand-lg navbar-dark masthead-container">
-					<div class="container-fluid col-md-8">
+				<nav class="navbar navbar-expand-lg navbar-dark masthead-container fixed-top">
+					<div class="container-fluid col-md-10">
 						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
 						<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 							<div class="navbar-nav">
+								<a class="nav-link active" aria-current="page" href="#">Home</a>
 						  		<a class="nav-link active" aria-current="page" href="#maprow">Map</a>
 						  		<a class="nav-link active" href="#sourcerow">Sources</a>
-								<a class="nav-link active" href="#">About</a>
+								<a class="nav-link active" href="#datarow">Data</a>
+								<a class="nav-link active" href="https://andrewstevenhahn.github.io/about.html">About Me</a>
 							</div>
 					  	</div>
 					</div>
 				</nav>
 			</div>
 			<div class="row d-flex container-fluid justify-content-center">
-				<div class="col-md-6 rowbox">
+				<div class="col-lg-6 rowbox">
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus posuere ligula vitae cursus. Sed et porta nulla. I
-						n quis fringilla tellus. Curabitur nec dui molestie est viverra luctus commodo ut ex. Lorem ipsum dolor sit amet, consectetur 
-						adipiscing elit. Sed et nulla orci. Praesent vel metus ligula. Ut in ligula porta, condimentum diam in, facilisis nulla. Cras id 
-						commodo sem. Fusce luctus tincidunt dui, in semper dolor sodales vel. Suspendisse hendrerit vestibulum diam, tempor lacinia ligula 
-						laoreet ut. Sed convallis, elit non elementum feugiat, velit magna ornare ante, quis finibus massa tortor vel nibh. Donec ut 
-						venenatis felis. Sed eget augue id lectus pellentesque rutrum. Aenean blandit nulla condimentum pulvinar hendrerit.
+						For decades, residents of Wisconsin's Central Sands region <a href="https://wisconsinwatch.org/2013/07/groundwater-war-pits-wisconsin-farms-against-fish-2/">
+						have seen disappearing freshwater ponds, lakes, and streams</a> due to declining groundwater levels. But for a decade beginning in 2011, the
+						state Department of Natural Resources claimed it lacked the authority to impose restrictions on high-capacity groundwater wells, often used
+						in agricultural and industrial operations. 
 					</p>
 					<p>
-						Quisque malesuada congue sapien, ut porta libero facilisis at. Nam mi lorem, rutrum a maximus eu, mollis sed justo. Ut a sem vel nunc 
-						viverra mollis nec non urna. Phasellus augue tortor, volutpat at sodales tincidunt, dapibus sit amet lorem. Aliquam eu lectus at lectus 
-						aliquet porta. Aliquam pulvinar lacus a ullamcorper semper. Donec sed quam aliquam, venenatis nulla a, faucibus ligula. Suspendisse 
-						potenti.
+						<a href="https://www.wpr.org/clean-wisconsin-suing-dnr-over-high-capacity-well-policy">Lawsuits from environmental groups </a> tested this argument by challenging the DNR's approval of a number of large-scale industrial operations, 
+						including a handful of high-capacity well permits. In July 2021, <a href="https://www.wpr.org/wisconsin-supreme-court-affirms-dnr-authority-restrict-deny-farm-permits-protect-water">
+						the Wisconsin Supreme Court agreed with them</a>, and ruled the DNR <a href="https://www.jsonline.com/story/news/politics/2021/07/08/wisconsin-supreme-court-rules-environmentalists-win-high-capacity-wells/7894640002/">
+						does in fact have the authority </a> to "consider the environmental effects of a proposed
+						high-capacity well." Research has shown these effects can include <a href="https://www.jsonline.com/story/news/2021/04/08/high-capacity-wells-found-reduce-lake-levels-region-wisconsin/7108375002/">diminishing groundwater reserves </a>and <a href="https://www.wuwm.com/podcast/lake-effect-segments/2016-01-24/despite-state-efforts-arsenic-continues-to-poison-many-private-wells-in-wisconsin">arsenic contamination in nearby wells</a>.
+					</p>
+					<div class="container imgwrapper">
+						<img class="img-fluid img-thumbnail" src="img/well_const_graph.png" alt="Graph of Wisconsin high-capacity well construction 2000-2021 showing a peak in 2013.">
+					</div>
+					<p>
+						While high-capacity well construction has declined slightly since these and other water issues <a href="https://wisconsinwatch.org/2016/08/water-woes-emerge-as-major-issue-in-wisconsin-elections/">
+						became major political issues </a>in some parts of the state during the 2016 election, well owners who were granted permits prior to the Supreme Court's decision continue to operate them. Today, the DNR 
+						provides <a href="https://dnr.wisconsin.gov/topic/Wells/HighCap">much more comprehensive data </a>about high-capacity well construction and use, although <b>no downloadable statewide dataset of high-capacity 
+						wells and their groundwater consumption has existed </b> prior to this project. 
 					</p>
 					<p>
-						Donec libero velit, lacinia ut mattis in, lacinia vitae tortor. Sed eget fermentum lacus. Phasellus sed tincidunt arcu, eget fermentum 
-						ligula. In pretium tincidunt quam sit amet eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus non ullamcorper 
-						neque, ut rhoncus dolor. Aliquam volutpat a tortor sed mattis. Ut id rutrum odio, non consectetur velit. Morbi ut lacus quis mi commodo 
-						tristique. Curabitur euismod mi a mi ullamcorper, sed aliquet velit luctus.
+						Using Python and <a href="https://selenium-python.readthedocs.io/">the Selenium library </a>for web app manipulation, the data for the map below were copied and saved from the DNR's <a href="https://dnr.wi.gov/wateruse/pub_v3_ext/source/">Drinking and Ground Water Use Information System</a>
+						in Wisconsin. Examining these data at a new scale reveals the huge operating capacity of industrial wells in at-risk regions like the Central Sands.
+					</p>
+					<p>
+						In the future, based on these datasets and techniques, other tools may be created to help give homeowners, environmental watchdogs, and journalists
+						greater insight into groundwater withdrawal patterns at large-scale industrial operations. 
 					</p>										
 				</div>
 			</div>
-			<div class="row d-flex container-fluid whiterow" id="maprow">
-				<div id="map">									
+			<div class="row d-flex container-fluid whiterow anchor" id="maprow">
+				<div class="maptitle">
+					<div class="d-flex container-fluid justify-content-center">
+						<div class="col-md-8">
+							<h3>Cumulative High-Capacity Well Construction over Groundwater Sources by Township (2010-2021)</h3>
+						</div>
+					</div>
 				</div>
-		
-			</div>  
-			<div class="row d-flex container-fluid justify-content-center" id="sourcerow">
+				<div class="container-fluid d-flex justify-content-center">
+					<div class="mapframe" id="map"></div>
+				</div>
+				<div class="col-md-8 offset-md-2 caption">
+					<p><i>Data are current as of February 2022. DNR does not guarantee completeness of well records prior to 2010. Well construction counts are
+						aggregated into PLSS townships.</i></p>
+				</div>
+			</div>
+			<div class="row d-flex container-fluid justify-content-center anchor" id="datarow">
 				<div class="col-md-6 rowbox">
+					<h3>Download the Data</h3>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus posuere ligula vitae cursus. Sed et porta nulla. I
-						n quis fringilla tellus. Curabitur nec dui molestie est viverra luctus commodo ut ex. Lorem ipsum dolor sit amet, consectetur 
-						adipiscing elit. Sed et nulla orci. Praesent vel metus ligula. Ut in ligula porta, condimentum diam in, facilisis nulla. Cras id 
-						commodo sem. Fusce luctus tincidunt dui, in semper dolor sodales vel. Suspendisse hendrerit vestibulum diam, tempor lacinia ligula 
-						laoreet ut. Sed convallis, elit non elementum feugiat, velit magna ornare ante, quis finibus massa tortor vel nibh. Donec ut 
-						venenatis felis. Sed eget augue id lectus pellentesque rutrum. Aenean blandit nulla condimentum pulvinar hendrerit.
+						The DNR water data is saved in two parts. The attribute data contains one row per high-capacity well and several details about its construction and use. 
+						The well use data contains monthly use data and comments for each well for each reporting year after construction.
 					</p>
+					<ul>
+						<li><a href="data/wellattributes_2.18.2022.csv" download="data/wellattributes_2.18.2022.csv">Download Well Attribute Data</a></li>
+						<li><a href="data/welluse_2.18.2022.csv" download="data/welluse_2.18.2022.csv">Download Well Use Data</a></li>
+					</ul>
 					<p>
-						Quisque malesuada congue sapien, ut porta libero facilisis at. Nam mi lorem, rutrum a maximus eu, mollis sed justo. Ut a sem vel nunc 
-						viverra mollis nec non urna. Phasellus augue tortor, volutpat at sodales tincidunt, dapibus sit amet lorem. Aliquam eu lectus at lectus 
-						aliquet porta. Aliquam pulvinar lacus a ullamcorper semper. Donec sed quam aliquam, venenatis nulla a, faucibus ligula. Suspendisse 
-						potenti.
+						<i>These data were collected from the Wisconsin Department of Natural Resources <a href="https://dnr.wi.gov/wateruse/pub_v3_ext/source/""> Drinking & Ground Water Use Information System.</a>
+						Data are current as of February 2022 and include all groundwater filings through 2021.</i>
 					</p>
-					<p>
-						Donec libero velit, lacinia ut mattis in, lacinia vitae tortor. Sed eget fermentum lacus. Phasellus sed tincidunt arcu, eget fermentum 
-						ligula. In pretium tincidunt quam sit amet eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus non ullamcorper 
-						neque, ut rhoncus dolor. Aliquam volutpat a tortor sed mattis. Ut id rutrum odio, non consectetur velit. Morbi ut lacus quis mi commodo 
-						tristique. Curabitur euismod mi a mi ullamcorper, sed aliquet velit luctus.
-					</p>										
 				</div>
 		
-			</div>  
+			</div>   
+
+			<div class="row d-flex container-fluid justify-content-center whiterow anchor" id="sourcerow">
+				<div class="col-md-6 rowbox">
+					<h3>Sources & Further Reading</h3>
+					<p>
+						<i><a href="https://wisconsinwatch.org/">The Wisconsin Center for Investigative Journalism</a> is not affiliated with this project, but it is responsible for much of the information available
+						about groundwater contamination in Wisconsin. If you want to learn more about supporting local investigative journalism for the public good,
+						<a href="https://wisconsinwatch.org/donate/">click here</a>.</i>
+					</p>
+					<div class="csl-bib-body" style="line-height: 2; margin-left: 2em; text-indent:-2em;">
+						<div class="csl-entry"><i>Despite State Efforts, Arsenic Continues to Poison Many Private Wells in Wisconsin</i>. (n.d.). WUWM 89.7 FM - Milwaukee’s NPR. Retrieved March 7, 2022, from <a href="https://www.wuwm.com/podcast/lake-effect-segments/2016-01-24/despite-state-efforts-arsenic-continues-to-poison-many-private-wells-in-wisconsin">https://www.wuwm.com/podcast/lake-effect-segments/2016-01-24/despite-state-efforts-arsenic-continues-to-poison-many-private-wells-in-wisconsin</a></div>
+						<span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft.type=webpage&amp;rft.title=Despite%20State%20Efforts%2C%20Arsenic%20Continues%20to%20Poison%20Many%20Private%20Wells%20in%20Wisconsin&amp;rft.description=Special%20regulations%20to%20reduce%20exposure%20to%20the%20ancient%20poison%20have%20helped%2C%20but%20high-capacity%20wells%20can%20exacerbate%20the%20problem.By%20the%20time%20Bradley%E2%80%A6&amp;rft.identifier=https%3A%2F%2Fwww.wuwm.com%2Fpodcast%2Flake-effect-segments%2F2016-01-24%2Fdespite-state-efforts-arsenic-continues-to-poison-many-private-wells-in-wisconsin&amp;rft.language=en"></span>
+						<div class="csl-entry">Hahn, A., August 7, W. org, &amp; 2016. (2016, August 7). <i>Water woes emerge as major issue in Wisconsin elections</i>. WisconsinWatch.Org. <a href="https://wisconsinwatch.org/2016/08/water-woes-emerge-as-major-issue-in-wisconsin-elections/">https://wisconsinwatch.org/2016/08/water-woes-emerge-as-major-issue-in-wisconsin-elections/</a></div>
+						<span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft.type=webpage&amp;rft.title=Water%20woes%20emerge%20as%20major%20issue%20in%20Wisconsin%20elections&amp;rft.description=Residents%20concerned%20about%20contaminated%20wells%20and%20disappearing%20lakes%20are%20making%20water%20a%20major%20campaign%20issue%20for%20some%20Wisconsin%20candidates%20this%20fall.&amp;rft.identifier=https%3A%2F%2Fwisconsinwatch.org%2F2016%2F08%2Fwater-woes-emerge-as-major-issue-in-wisconsin-elections%2F&amp;rft.aufirst=Andrew&amp;rft.aulast=Hahn&amp;rft.au=Andrew%20Hahn&amp;rft.au=WisconsinWatch%20org%20August%207&amp;rft.au=undefined&amp;rft.date=2016-08-07&amp;rft.language=en-US"></span>
+						<div class="csl-entry"><i>High capacity wells | | Wisconsin DNR</i>. (n.d.). Retrieved March 7, 2022, from <a href="https://dnr.wisconsin.gov/topic/Wells/HighCap">https://dnr.wisconsin.gov/topic/Wells/HighCap</a></div>
+						<span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft.type=webpage&amp;rft.title=High%20capacity%20wells%20%7C%20%7C%20Wisconsin%20DNR&amp;rft.identifier=https%3A%2F%2Fdnr.wisconsin.gov%2Ftopic%2FWells%2FHighCap"></span>
+						<div class="csl-entry">Kirwan, H. (2021, July 8). <i>Wisconsin Supreme Court Affirms DNR Authority To Restrict, Deny Farm Permits To Protect Water</i>. Wisconsin Public Radio. <a href="https://www.wpr.org/wisconsin-supreme-court-affirms-dnr-authority-restrict-deny-farm-permits-protect-water">https://www.wpr.org/wisconsin-supreme-court-affirms-dnr-authority-restrict-deny-farm-permits-protect-water</a></div>
+						<span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft.type=webpage&amp;rft.title=Wisconsin%20Supreme%20Court%20Affirms%20DNR%20Authority%20To%20Restrict%2C%20Deny%20Farm%20Permits%20To%20Protect%20Water&amp;rft.description=In%20a%20pair%20of%20decisions%20issued%20Thursday%2C%20the%20Wisconsin%20Supreme%20Court%20ruled%20in%20favor%20of%20environmental%20groups%20and%20residents%20who%20said%20the%20DNR%20should%20have%20restricted%20or%20denied%20permits%20for%20a%20CAFO%20and%20several%20high-capacity%20wells.&amp;rft.identifier=https%3A%2F%2Fwww.wpr.org%2Fwisconsin-supreme-court-affirms-dnr-authority-restrict-deny-farm-permits-protect-water&amp;rft.aufirst=Hope&amp;rft.aulast=Kirwan&amp;rft.au=Hope%20Kirwan&amp;rft.date=2021-07-08&amp;rft.language=en"></span>
+						<div class="csl-entry">Marley, P. (n.d.). <i>Wisconsin Supreme Court rules DNR can consider effects on surrounding areas when issuing water permits to farms, businesses</i>. Milwaukee Journal Sentinel. Retrieved March 7, 2022, from <a href="https://www.jsonline.com/story/news/politics/2021/07/08/wisconsin-supreme-court-rules-environmentalists-win-high-capacity-wells/7894640002/">https://www.jsonline.com/story/news/politics/2021/07/08/wisconsin-supreme-court-rules-environmentalists-win-high-capacity-wells/7894640002/</a></div>
+						<span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft.type=webpage&amp;rft.title=Wisconsin%20Supreme%20Court%20rules%20DNR%20can%20consider%20effects%20on%20surrounding%20areas%20when%20issuing%20water%20permits%20to%20farms%2C%20businesses&amp;rft.description=Thursday%E2%80%99s%20decisions%20resolved%20two%20long-running%2C%20closely%20watched%20environmental%20cases%20that%20centered%20on%20a%202011%20law%20limiting%20the%20power%20of%20regulators.&amp;rft.identifier=https%3A%2F%2Fwww.jsonline.com%2Fstory%2Fnews%2Fpolitics%2F2021%2F07%2F08%2Fwisconsin-supreme-court-rules-environmentalists-win-high-capacity-wells%2F7894640002%2F&amp;rft.aufirst=Patrick&amp;rft.aulast=Marley&amp;rft.au=Patrick%20Marley&amp;rft.language=en-US"></span>
+						<div class="csl-entry">Moberg, G. (2016, October 31). <i>Clean Wisconsin Suing DNR Over High-Capacity Well Policy</i>. Wisconsin Public Radio. <a href="https://www.wpr.org/clean-wisconsin-suing-dnr-over-high-capacity-well-policy">https://www.wpr.org/clean-wisconsin-suing-dnr-over-high-capacity-well-policy</a></div>
+						<span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft.type=webpage&amp;rft.title=Clean%20Wisconsin%20Suing%20DNR%20Over%20High-Capacity%20Well%20Policy&amp;rft.description=Clean%20Wisconsin%20has%20filed%20nine%20lawsuits%20against%20the%20Wisconsin%20Department%20of%20Natural%20Resources%2C%20alleging%20the%20agency%20is%20violating%20the%20state%20Constitution%20because%20of%20the%20way%20it%20reviews%20high-capacity%20well%20permits.&amp;rft.identifier=https%3A%2F%2Fwww.wpr.org%2Fclean-wisconsin-suing-dnr-over-high-capacity-well-policy&amp;rft.aufirst=Glen&amp;rft.aulast=Moberg&amp;rft.au=Glen%20Moberg&amp;rft.date=2016-10-31&amp;rft.language=en"></span>
+						<div class="csl-entry">Prengaman, K., July 21, W. org, &amp; 2013. (2013, July 21). <i>Groundwater war pits Wisconsin farms against fish</i>. WisconsinWatch.Org. <a href="https://wisconsinwatch.org/2013/07/groundwater-war-pits-wisconsin-farms-against-fish-2/">https://wisconsinwatch.org/2013/07/groundwater-war-pits-wisconsin-farms-against-fish-2/</a></div>
+						<span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft.type=webpage&amp;rft.title=Groundwater%20war%20pits%20Wisconsin%20farms%20against%20fish&amp;rft.description=%E2%80%9CLong%20Lake%20was%20once%20a%20trophy%20bass%20lake.%20So%20when%20we%20moved%20here%2C%20in%20the%20first%20two%20years%2C%20my%20boys%20were%20catching%20bass%20like%20crazy%2C%E2%80%9D%20said%20Brian%20Wolf%2C%20who%20owns%20a%20cabin%20on%20Long%20Lake.%20%E2%80%9CIt%20was%20like%20catching%20fish%20in%20a%20barrel%20as%20the%20water%20declined.%E2%80%9D&amp;rft.identifier=https%3A%2F%2Fwisconsinwatch.org%2F2013%2F07%2Fgroundwater-war-pits-wisconsin-farms-against-fish-2%2F&amp;rft.aufirst=Kate&amp;rft.aulast=Prengaman&amp;rft.au=Kate%20Prengaman&amp;rft.au=WisconsinWatch%20org%20July%2021&amp;rft.au=undefined&amp;rft.date=2013-07-21&amp;rft.language=en-US"></span>
+						<div class="csl-entry">Schulte, L. (n.d.). <i>High-capacity wells are reducing lake levels in Wisconsin’s Central Sands region, a new study finds</i>. Milwaukee Journal Sentinel. Retrieved March 7, 2022, from <a href="https://www.jsonline.com/story/news/2021/04/08/high-capacity-wells-found-reduce-lake-levels-region-wisconsin/7108375002/">https://www.jsonline.com/story/news/2021/04/08/high-capacity-wells-found-reduce-lake-levels-region-wisconsin/7108375002/</a></div>
+						<span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft.type=webpage&amp;rft.title=High-capacity%20wells%20are%20reducing%20lake%20levels%20in%20Wisconsin's%20Central%20Sands%20region%2C%20a%20new%20study%20finds&amp;rft.description=High-capacity%20wells%20have%20the%20ability%20to%20withdraw%20more%20than%20100%2C000%20gallons%20of%20water%20a%20day%20from%20the%20ground%20and%20are%20usually%20used%20for%20agricultural%20purposes.&amp;rft.identifier=https%3A%2F%2Fwww.jsonline.com%2Fstory%2Fnews%2F2021%2F04%2F08%2Fhigh-capacity-wells-found-reduce-lake-levels-region-wisconsin%2F7108375002%2F&amp;rft.aufirst=Laura&amp;rft.aulast=Schulte&amp;rft.au=Laura%20Schulte&amp;rft.language=en-US"></span>
+					  </div>
+				</div>
+		
+			</div> 
 
 		</div>			
 		<!--you can also use this space for internal scripts or stylesheets;
